@@ -2678,8 +2678,9 @@ const SignupPage = () => {
           body: JSON.stringify({
             uname: email,
             passwd: password,
-            firstName: firstName,
-            lastName: lastName,
+            // firstName: firstName,
+            // lastName: lastName,
+            fullname: `${firstName} ${lastName}`, 
             phone: phone,
             address: address,
             Zip: zip,

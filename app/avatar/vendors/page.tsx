@@ -128,7 +128,7 @@ export default function Vendors() {
 
   const columnDefs: ColDef[] = useMemo(
     () => [
-      { field: "id", headerName: "ID", width: 80, pinned: "left", checkboxSelection: true },
+      { field: "id", headerName: "ID", width: 80, pinned: "left" },
       { field: "company", headerName: "Company", flex: 1, minWidth: 200 },
       {
         field: "contact",
@@ -175,63 +175,63 @@ export default function Vendors() {
     setFilteredVendors((prev) => prev.filter((row) => row.id !== id));
   };
 
-  return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-            Vendors Management
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            Manage your partner vendors and daily communications
-          </p>
-        </div>
-        <Button className="bg-whitebox-600 hover:bg-whitebox-700">
-          <PlusIcon className="h-4 w-4 mr-2" />
-          Add Vendor
-        </Button>
-      </div>
+//   return (
+//     <div className="space-y-6">
+//       {/* Header */}
+//       <div className="flex items-center justify-between">
+//         <div>
+//           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+//             Vendors Management
+//           </h1>
+//           <p className="text-gray-600 dark:text-gray-400">
+//             Manage your partner vendors and daily communications
+//           </p>
+//         </div>
+//         <Button className="bg-whitebox-600 hover:bg-whitebox-700">
+//           <PlusIcon className="h-4 w-4 mr-2" />
+//           Add Vendor
+//         </Button>
+//       </div>
 
-      {/* Search Input */}
-      <div className="max-w-md">
-        <Label
-          htmlFor="search"
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          Search Vendors
-        </Label>
-        <div className="relative mt-1">
-          <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-          <Input
-            id="search"
-            type="text"
-            placeholder="Search by company, contact, email, services..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
-          />
-        </div>
-        {searchTerm && (
-          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-            {filteredVendors.length} vendor(s) found
-          </p>
-        )}
-      </div>
+//       {/* Search Input */}
+//       <div className="max-w-md">
+//         <Label
+//           htmlFor="search"
+//           className="text-sm font-medium text-gray-700 dark:text-gray-300"
+//         >
+//           Search Vendors
+//         </Label>
+//         <div className="relative mt-1">
+//           <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+//           <Input
+//             id="search"
+//             type="text"
+//             placeholder="Search by company, contact, email, services..."
+//             value={searchTerm}
+//             onChange={(e) => setSearchTerm(e.target.value)}
+//             className="pl-10"
+//           />
+//         </div>
+//         {searchTerm && (
+//           <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+//             {filteredVendors.length} vendor(s) found
+//           </p>
+//         )}
+//       </div>
 
-      {/* AG Grid Table */}
-      <AGGridTable
-        rowData={filteredVendors}
-        columnDefs={columnDefs}
-        title={`All Vendors (${filteredVendors.length})`}
-        height="calc(50vh)"
-        showSearch={false}
-        // onRowClicked={(event) => {
-        //   console.log("Row clicked:", event.data);
-        // }}
-        onRowUpdated={handleRowUpdated}
-        onRowDeleted={handleRowDeleted}
-      />
-    </div>
-  );
+//       {/* AG Grid Table */}
+//       <AGGridTable
+//         rowData={filteredVendors}
+//         columnDefs={columnDefs}
+//         title={`All Vendors (${filteredVendors.length})`}
+//         height="calc(50vh)"
+//         showSearch={false}
+//         // onRowClicked={(event) => {
+//         //   console.log("Row clicked:", event.data);
+//         // }}
+//         onRowUpdated={handleRowUpdated}
+//         onRowDeleted={handleRowDeleted}
+//       />
+//     </div>
+//   );
 }
